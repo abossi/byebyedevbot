@@ -1,9 +1,9 @@
-from singleton import Singleton
+from app.core.singleton import Singleton
 
 class Config(metaclass=Singleton):
-    def __init__(self, file="../config.file"):
+    def __init__(self, file="./app/config.file"):
         # transform config.file into dictionnary with key: value
-        with open(file, 'r') as f:
+        with open(file, 'r', encoding='utf-8') as f:
             tmpList = [value.split("=", 1) for value in f.readlines()]
             self.dic = {elem[0]:elem[1] for elem in tmpList}
 
